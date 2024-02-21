@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "deploy-production": "npm run webpack-build && npm run firebase-auth-check && firebase deploy --only hosting && firebase deploy --only functions",
     "dev": "npm run script-dev-env-setup && webpack serve --mode development",
+    "firebase-auth-check": "node ./scripts/FirebaseAuthCheckScript.js",
     "script-dev-env-setup": "node ./scripts/dev-env-setup.js",
-    "deploy-production": "npm run webpack-build && firebase deploy --only hosting && firebase deploy --only functions",
     "webpack-build": "cross-env NODE_ENV=production webpack --mode production"
   },
   "author": "",
