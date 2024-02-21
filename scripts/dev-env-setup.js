@@ -4,6 +4,15 @@ const path = require('path');
 
 const srcDir = path.join(__dirname, '../src');
 const outputDir = path.join(__dirname, '../development');
+const productionDir = path.join(__dirname, '../production');
+
+// Create "development" and "production" directories if they don't exist
+if (!fs.existsSync(outputDir)) {
+  fs.mkdirSync(outputDir);
+}
+if (!fs.existsSync(productionDir)) {
+  fs.mkdirSync(productionDir);
+}
 
 // Read the src directory for TSX files
 fs.readdir(srcDir, (err, files) => {
